@@ -64,7 +64,7 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
     }
 
     private void initAdapter() {
-        adapter = new StepPagerAdapter(getSupportFragmentManager(), steps);
+        adapter = new StepPagerAdapter(getSupportFragmentManager(), steps, this);
         pager.setAdapter(adapter);
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -75,7 +75,7 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
             @Override
             public void onPageSelected(int position) {
                 currentItem = position;
-                currentFragmentListener.currentFragmentPosition(position,adapter.getItem(position).getView());
+                currentFragmentListener.currentFragmentPosition(position);
                 controlPosition(position);
             }
 

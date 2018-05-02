@@ -12,6 +12,8 @@ import com.hololo.tutorial.library.TutorialActivity;
 
 public class MainActivity extends TutorialActivity {
 
+    private View currentFragmentView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,7 +33,12 @@ public class MainActivity extends TutorialActivity {
     }
 
     @Override
-    public void currentFragmentPosition(int position, View view) {
+    public void currentFragmentPosition(int position) {
         Toast.makeText(this,"Position : " + position,Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void currentFragmentView(View view) {
+        currentFragmentView = view;
     }
 }
