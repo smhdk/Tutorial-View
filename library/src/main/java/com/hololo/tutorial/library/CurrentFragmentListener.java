@@ -5,5 +5,5 @@ import android.view.View;
 public interface CurrentFragmentListener {
     void currentFragmentPosition(int position);
 
-    void currentFragmentView(View view);
+    void currentFragmentView(View view, int position);
 }

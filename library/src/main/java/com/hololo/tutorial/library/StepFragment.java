@@ -11,17 +11,19 @@ import android.widget.TextView;
 public class StepFragment extends StepView {
 
     private static CurrentFragmentListener currentFragmentListener;
+    private static int position = -1;
     private TextView title;
     private TextView content;
     private TextView summary;
     private ImageView imageView;
     private View layout;
 
-    static StepFragment createFragment(Step step, CurrentFragmentListener listener) {
+    static StepFragment createFragment(Step step, CurrentFragmentListener listener, int pos) {
         StepFragment fragment = new StepFragment();
         Bundle bundle = new Bundle();
         bundle.putParcelable("step", step);
         fragment.setArguments(bundle);
+        position = pos;
         currentFragmentListener = listener;
         return fragment;
     }
@@ -39,8 +41,7 @@ public class StepFragment extends StepView {
         int layout = step.getViewType() > 0 ? step.getViewType() : R.layout.fragment_step;
 
         View view = inflater.inflate(layout, container, false);
-
-        currentFragmentListener.currentFragmentView(view);
+        currentFragmentListener.currentFragmentView(view, position);
         initViews(view);
         initData();
 

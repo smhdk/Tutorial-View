@@ -26,6 +26,6 @@ public class StepPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         Step step = stepList.get(position);
 
-        return StepFragment.createFragment(step, currentFragmentListener);
+        return StepFragment.createFragment(step, currentFragmentListener, position);
     }
 }
