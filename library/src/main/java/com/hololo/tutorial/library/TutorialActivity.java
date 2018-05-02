@@ -75,7 +75,7 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
             @Override
             public void onPageSelected(int position) {
                 currentItem = position;
-                currentFragmentListener.currentFragmentPosition(position);
+                currentFragmentListener.currentFragmentPosition(position,adapter.getItem(position).getView());
                 controlPosition(position);
             }
 

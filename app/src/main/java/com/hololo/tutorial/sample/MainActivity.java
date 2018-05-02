@@ -3,6 +3,7 @@ package com.hololo.tutorial.sample;
 import android.Manifest;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
 import com.hololo.tutorial.library.PermissionStep;
@@ -30,7 +31,7 @@ public class MainActivity extends TutorialActivity {
     }
 
     @Override
-    public void currentFragmentPosition(int position) {
+    public void currentFragmentPosition(int position, View view) {
         Toast.makeText(this,"Position : " + position,Toast.LENGTH_SHORT).show();
     }
 }
