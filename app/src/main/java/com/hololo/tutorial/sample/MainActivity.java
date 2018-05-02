@@ -13,7 +13,7 @@ import com.hololo.tutorial.library.TutorialActivity;
 public class MainActivity extends TutorialActivity {
 
     private View currentFragmentView;
-    private int currentPosition;
+    private String currentFragmentTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +39,8 @@ public class MainActivity extends TutorialActivity {
     }
 
     @Override
-    public void currentFragmentView(View view, int position) {
+    public void currentFragmentView(View view, String tag) {
         currentFragmentView = view;
-        currentPosition = position;
+        currentFragmentTag = tag;
     }
 }

@@ -41,7 +41,7 @@ public class StepFragment extends StepView {
         int layout = step.getViewType() > 0 ? step.getViewType() : R.layout.fragment_step;
 
         View view = inflater.inflate(layout, container, false);
-        currentFragmentListener.currentFragmentView(view, position);
+        currentFragmentListener.currentFragmentView(view, step.getTag());
         initViews(view);
         initData();
 

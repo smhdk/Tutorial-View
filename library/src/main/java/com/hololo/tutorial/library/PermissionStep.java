@@ -59,6 +59,11 @@ public class PermissionStep extends Step implements Parcelable {
             step.setViewType(view);
             return this;
         }
+
+        public Builder setTag(String tag) {
+            step.setTag(tag);
+            return this;
+        }
     }
 
 }
