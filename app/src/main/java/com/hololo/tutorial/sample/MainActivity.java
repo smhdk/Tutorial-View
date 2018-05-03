@@ -30,7 +30,11 @@ public class MainActivity extends TutorialActivity {
     @Override
     public void finishTutorial() {
         Toast.makeText(this, "Tutorial finished", Toast.LENGTH_SHORT).show();
-        finish();
+    }
+
+    @Override
+    public void cancelTutorial() {
+        Toast.makeText(this, "Tutorial canceled", Toast.LENGTH_SHORT).show();
     }
 
     @Override
