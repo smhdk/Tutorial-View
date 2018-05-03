@@ -235,14 +235,20 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
             item--;
         }
 
-        if (item < 0 || item == steps.size()) {
+        if (item < 0) {
+            cancelTutorial();
+        } else if (item == steps.size()) {
             finishTutorial();
-        } else
+        } else {
             pager.setCurrentItem(item, true);
+        }
     }
 
     public void finishTutorial() {
         finish();
+    }
+
+    public void cancelTutorial() {
     }
 
     public void setPrevText(String text) {

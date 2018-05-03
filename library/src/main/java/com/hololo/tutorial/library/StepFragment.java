@@ -11,7 +11,6 @@ import android.widget.TextView;
 public class StepFragment extends StepView {
 
     private static CurrentFragmentListener currentFragmentListener;
-    private static int position = -1;
     private TextView title;
     private TextView content;
     private TextView summary;
@@ -23,7 +22,6 @@ public class StepFragment extends StepView {
         Bundle bundle = new Bundle();
         bundle.putParcelable("step", step);
         fragment.setArguments(bundle);
-        position = pos;
         currentFragmentListener = listener;
         return fragment;
     }
