@@ -37,11 +37,7 @@ public class MainActivity extends TutorialActivity {
                 .build());
 
         addFragment(new Step.Builder()
-                .setTitle(getString(R.string.choose_the_song))
-                .setContent(getString(R.string.swap_to_the_tab))
-                .setBackgroundColor(Color.parseColor("#00D4BA"))
-                .setDrawable(R.drawable.ss_2)
-                .setSummary(getString(R.string.continue_and_update))
+
                 .build());
 
         addFragment(new Step.Builder()
