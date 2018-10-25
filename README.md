@@ -1,4 +1,4 @@
-[![](https://jitpack.io/#msayan/tutorial-view.svg)](https://jitpack.io/#smhdk/Tutorial-View)
+[![](https://jitpack.io/v/smhdk/Tutorial-View.svg)](https://jitpack.io/#smhdk/Tutorial-View)
 
 # Tutorial View
 
