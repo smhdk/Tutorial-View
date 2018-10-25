@@ -8,12 +8,10 @@ import java.util.List;
 
 public class StepPagerAdapter extends FragmentPagerAdapter {
     private List<Step> stepList;
-    private CurrentFragmentListener currentFragmentListener;
 
-    public StepPagerAdapter(FragmentManager fm, List<Step> stepList, CurrentFragmentListener listener) {
+    public StepPagerAdapter(FragmentManager fm, List<Step> stepList) {
         super(fm);
         this.stepList = stepList;
-        this.currentFragmentListener = listener;
     }
 
 
@@ -25,7 +23,6 @@ public class StepPagerAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Step step = stepList.get(position);
-
-        return StepFragment.createFragment(step, currentFragmentListener, position);
+        return StepFragment.createFragment(step, position);
     }
 }

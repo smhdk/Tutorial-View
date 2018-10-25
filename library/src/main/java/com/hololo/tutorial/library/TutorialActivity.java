@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
@@ -22,7 +23,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class TutorialActivity extends AppCompatActivity implements View.OnClickListener, CurrentFragmentListener {
+public abstract class TutorialActivity extends AppCompatActivity implements View.OnClickListener {
 
     private List<Step> steps;
     private StepPagerAdapter adapter;
@@ -32,8 +33,6 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
     private LinearLayout indicatorLayout;
     private FrameLayout containerLayout;
     private RelativeLayout buttonContainer;
-    private CurrentFragmentListener currentFragmentListener;
-
     private int currentItem;
 
     private String prevText, nextText, finishText, cancelText, givePermissionText;
@@ -44,7 +43,6 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
         setTheme(R.style.TutorialStyle);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tutorial);
-        currentFragmentListener = this;
         init();
     }
 
@@ -64,7 +62,7 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
     }
 
     private void initAdapter() {
-        adapter = new StepPagerAdapter(getSupportFragmentManager(), steps, this);
+        adapter = new StepPagerAdapter(getSupportFragmentManager(), steps);
         pager.setAdapter(adapter);
         pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -75,7 +73,7 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
             @Override
             public void onPageSelected(int position) {
                 currentItem = position;
-                currentFragmentListener.currentFragmentPosition(position);
+                currentFragment(((Fragment) adapter.instantiateItem(pager, position)).getView(), position);
                 controlPosition(position);
             }
 
@@ -249,6 +247,10 @@ public abstract class TutorialActivity extends AppCompatActivity implements View
     }
 
     public void cancelTutorial() {
+    }
+
+    public void currentFragment(@Nullable View view, Integer position) {
+
     }
 
     public void setPrevText(String text) {

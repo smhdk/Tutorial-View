@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hololo.tutorial.library.PermissionStep;
@@ -13,8 +14,6 @@ import com.hololo.tutorial.library.TutorialActivity;
 
 public class MainActivity extends TutorialActivity {
 
-    private View currentFragmentView;
-    private String currentFragmentTag;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,15 +36,18 @@ public class MainActivity extends TutorialActivity {
                 .build());
 
         addFragment(new Step.Builder()
+                .setTitle(getString(R.string.choose_the_song))
+                .setContent(getString(R.string.swap_to_the_tab))
+                .setBackgroundColor(Color.parseColor("#00D4BA"))
+                .setDrawable(R.drawable.ss_2)
+                .setSummary(getString(R.string.continue_and_update)).build());
 
-                .build());
 
         addFragment(new Step.Builder()
-                .setTitle(getString(R.string.edit_data))
-                .setContent(getString(R.string.update_easily))
+                .setTitle("Custom Layout Sample")
                 .setBackgroundColor(Color.parseColor("#1098FE"))
-                .setDrawable(R.drawable.ss_3)
-                .setSummary(getString(R.string.continue_and_result))
+                .setView(R.layout.layout_sample)
+                .setTag("sampleTag")
                 .build());
 
         addFragment(new Step.Builder()
@@ -69,15 +71,17 @@ public class MainActivity extends TutorialActivity {
     }
 
     @Override
-    public void currentFragmentPosition(int position) {
-        Toast.makeText(this, "Position : " + position, Toast.LENGTH_SHORT).show();
+    public void currentFragment(@Nullable final View view, Integer position) {
+        if (view != null && position == 3) {
+            TextView contentTextview = view.findViewById(R.id.content);
+            contentTextview.setText("Click This");
+
+            contentTextview.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(view.getContext(), "You can get current view and implementation it", Toast.LENGTH_LONG).show();
+                }
+            });
+        }
     }
-
-    @Override
-    public void currentFragmentView(@Nullable View view, @Nullable String tag) {
-        currentFragmentView = view;
-        currentFragmentTag = tag;
-    }
-
-
 }
