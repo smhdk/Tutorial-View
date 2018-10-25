@@ -1,4 +1,4 @@
-[![](https://jitpack.io/#msayan/tutorial-view.svg)](https://jitpack.io/#msayan/tutorial-view)
+[![](https://jitpack.io/#msayan/tutorial-view.svg)](https://jitpack.io/#smhdk/Tutorial-View)
 
 # Tutorial View
 
@@ -47,6 +47,8 @@ setCancelText(text); // Cancel button text
 setIndicatorSelected(int drawable); // Indicator drawable when selected
 setIndicator(int drawable); // Indicator drawable
 setGivePermissionText(String text); // Permission button text
+setView(int layout) // If you want custom view
+setTag(String tag) // Set tag when you use custom view. You can find current fragment view with tag in currentFragmentView method 
 
 ```
 
@@ -57,7 +59,20 @@ If you want to open another activity on tutorial finish
     public void finishTutorial() {
         // Your implementation
     }
-
+```
+Cancel button implementation in first step
+```java
+    @Override
+    public void cancelTutorial() {
+        // Your implementation
+    }
+```
+You can implement view properties at runtime.
+```java
+    @Override
+    public void currentFragment(View view, String tag) {
+        // Your implementation
+    }
 ```
 
 
@@ -92,7 +107,7 @@ Add it in your root build.gradle at the end of repositories:
 ```groovy
 
 	dependencies {
-		compile 'com.github.msayan:tutorial-view:v1.0.6'
+		implementation 'com.github.smhdk:Tutorial-View:v1.1.2'
 	}
   
 ```
@@ -101,7 +116,7 @@ Add it in your root build.gradle at the end of repositories:
 
     MIT License
     
-    Copyright (c) 2017 Mehmet Ayan
+    Copyright (c) 2018 Semih Dik
     
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
