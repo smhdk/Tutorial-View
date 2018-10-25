@@ -22,7 +22,7 @@ import android.widget.RelativeLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class TutorialActivity extends AppCompatActivity implements View.OnClickListener,CurrentFragmentListener {
+public abstract class TutorialActivity extends AppCompatActivity implements View.OnClickListener, CurrentFragmentListener {
 
     private List<Step> steps;
     private StepPagerAdapter adapter;
